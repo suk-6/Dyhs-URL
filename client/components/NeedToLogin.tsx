@@ -63,7 +63,7 @@ const NeedToLogin = () => (
       mb={[32, 32, 0]}
     >
       <Title>
-        <b>로그인</b>후 <b>링크 관리</b>, <b>통계 확인</b> 등의 <br></br>
+        <b>로그인</b> 후 <b>링크 관리</b>, <b>통계 확인</b> 등의 <br></br>
         서비스를 이용해보세요!
       </Title>
       <Link href="/login">
