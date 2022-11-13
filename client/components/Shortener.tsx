@@ -130,9 +130,9 @@ const Shortener = () => {
 
   const title = !link && (
     <H1 fontSize={[25, 27, 32]} light>
-      Kutt your links{" "}
+      Dukyoung URL{"  "}
       <Span style={{ borderBottom: "2px dotted #999" }} light>
-        shorter
+        shortener
       </Span>
       .
     </H1>
@@ -201,7 +201,7 @@ const Shortener = () => {
       >
         <TextInput
           {...text("target")}
-          placeholder="Paste your long URL"
+          placeholder="https:// 긴 URL을 붙여넣으세요."
           placeholderSize={[16, 17, 18]}
           fontSize={[18, 20, 22]}
           aria-label="target"
@@ -234,16 +234,14 @@ const Shortener = () => {
           name: "showAdvanced",
           onChange: e => {
             if (!isAuthenticated) {
-              setMessage(
-                "You need to log in or sign up to use advanced options."
-              );
+              setMessage("고급 옵션을 사용하려면 로그인해야 합니다.");
               return false;
             }
             return !formState.values.showAdvanced;
           }
         })}
         checked={formState.values.showAdvanced}
-        label="Show advanced options"
+        label="고급 옵션 보기"
         mt={[3, 24]}
         alignSelf="flex-start"
       />

@@ -21,7 +21,7 @@ const Footer: FC = () => {
     <ColCenter
       as="footer"
       width={1}
-      backgroundColor="white"
+      backgroundColor="(206, 12%, 95%)"
       p={isAuthenticated ? 2 : 24}
     >
       {!isAuthenticated && <ReCaptcha />}
@@ -57,6 +57,11 @@ const Footer: FC = () => {
             </ALink>
           </>
         )}
+        .<br></br>
+        Edited By{" "}
+        <ALink href="https://suk.kr" title="suk.kr">
+          Suk
+        </ALink>
         .
       </Text>
     </ColCenter>

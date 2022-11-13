@@ -28,9 +28,11 @@ const Homepage = () => {
       <Shortener />
       {!isAuthenticated && <NeedToLogin />}
       {isAuthenticated && <LinksTable />}
-      <Features />
-      <Extensions />
-      <Footer />
+      {/* <Features />
+      <Extensions /> */}
+      <div style={{ position: "absolute", bottom: "0" }}>
+        <Footer />
+      </div>
     </AppWrapper>
   );
 };

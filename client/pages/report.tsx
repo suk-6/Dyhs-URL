@@ -40,17 +40,14 @@ const ReportPage = () => {
     <AppWrapper>
       <Col width={600} maxWidth="97%" alignItems="flex-start">
         <H2 my={3} bold>
-          Report abuse
+          신고하기
         </H2>
-        <Text mb={3}>
-          Report abuses, malware and phishing links to the below email address
-          or use the form. We will take actions shortly.
-        </Text>
+        <Text mb={3}>바이러스, 피싱 등에 관련된 단축 URL을 신고해주세요.</Text>
         <Text mb={4}>
           {(publicRuntimeConfig.REPORT_EMAIL || "").replace("@", "[at]")}
         </Text>
         <Text mb={3}>
-          <Span bold>URL containing malware/scam:</Span>
+          <Span bold>URL 신고하기:</Span>
         </Text>
         <Flex
           as="form"
@@ -63,14 +60,14 @@ const ReportPage = () => {
             {...text("url")}
             placeholder={`${publicRuntimeConfig.DEFAULT_DOMAIN}/example`}
             height={[44, 54]}
-            width={[1, 1 / 2]}
+            width={[1, 1 / 1.3]}
             flex="0 0 auto"
             mr={3}
             required
           />
           <Button type="submit" flex="0 0 auto" height={[40, 44]} mt={[3, 0]}>
             {loading && <Icon name={"spinner"} stroke="white" mr={2} />}
-            Send report
+            관리자에게 전송
           </Button>
         </Flex>
         <Text fontSize={14} mt={3} color={message.color}>

@@ -58,11 +58,11 @@ const Header: FC = () => {
       <Link href="/login">
         <ALink
           href="/login"
-          title={!DISALLOW_REGISTRATION ? "login / signup" : "login"}
+          title={!DISALLOW_REGISTRATION ? "로그인 / 회원가입" : "로그인"}
           forButton
         >
           <Button height={[32, 40]}>
-            {!DISALLOW_REGISTRATION ? "Log in / Sign up" : "Log in"}
+            {!DISALLOW_REGISTRATION ? "로그인 / 회원가입" : "로그인"}
           </Button>
         </ALink>
       </Link>
@@ -72,7 +72,7 @@ const Header: FC = () => {
     <Li>
       <Link href="/logout">
         <ALink href="/logout" title="logout" fontSize={[14, 16]}>
-          Log out
+          로그아웃
         </ALink>
       </Link>
     </Li>
@@ -81,7 +81,9 @@ const Header: FC = () => {
     <Li>
       <Link href="/settings">
         <ALink href="/settings" title="Settings" forButton>
-          <Button height={[32, 40]}>Settings</Button>
+          <Button width={[30, 40]} height={[32, 40]}>
+            설정
+          </Button>
         </ALink>
       </Link>
     </Li>
@@ -124,7 +126,7 @@ const Header: FC = () => {
             m={0}
             p={0}
           >
-            <Li>
+            {/* <Li>
               <ALink
                 href="//github.com/thedevs-network/kutt"
                 target="_blank"
@@ -133,6 +135,17 @@ const Header: FC = () => {
                 fontSize={[14, 16]}
               >
                 GitHub
+              </ALink>
+            </Li> */}
+            <Li>
+              <ALink
+                href="https://dyhs.kr"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="dyhs.kr"
+                fontSize={[14, 16]}
+              >
+                dyhs.kr
               </ALink>
             </Li>
             <Li>

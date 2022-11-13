@@ -66,14 +66,13 @@ const ResetPassword: NextPage<Props> = ({ token }) => {
     <AppWrapper>
       <Col width={600} maxWidth="100%" px={3}>
         <H2 my={3} bold>
-          Reset password
+          비밀번호 찾기
         </H2>
         <Text mb={4}>
-          If you forgot you password you can use the form below to get reset
-          password link.
+          비밀번호를 잊은 경우 아래 양식을 통해 재설정 할 수 있습니다.
         </Text>
         <Text {...label("homepage")} as="label" mt={2} fontSize={[15, 16]} bold>
-          Email address
+          이메일 주소:
         </Text>
         <Flex
           as="form"
@@ -83,7 +82,7 @@ const ResetPassword: NextPage<Props> = ({ token }) => {
         >
           <TextInput
             {...email("email")}
-            placeholder="Email address..."
+            placeholder="이메일 주소를 입력하세요."
             height={[44, 54]}
             width={[1, 1 / 2]}
             mr={3}
@@ -92,7 +91,7 @@ const ResetPassword: NextPage<Props> = ({ token }) => {
           />
           <Button type="submit" height={[40, 44]} my={3}>
             {loading && <Icon name={"spinner"} stroke="white" mr={2} />}
-            Reset password
+            비밀번호 재설정
           </Button>
         </Flex>
         <Text fontSize={14} color={message.color} mt={2} normal>

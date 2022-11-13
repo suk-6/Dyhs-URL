@@ -51,13 +51,13 @@ const Verify: NextPage<Props> = ({ token }) => {
         <Col alignItems="center">
           <MessageWrapper>
             <Icon name="check" size={32} mr={3} stroke={Colors.CheckIcon} />
-            <Message>Your account has been verified successfully!</Message>
+            <Message>이메일 인증에 성공했습니다!</Message>
           </MessageWrapper>
           <Link href="/">
             <ALink href="/" forButton>
               <Button>
                 <Icon name="arrowLeft" stroke="white" mr={2} />
-                Back to homepage
+                홈페이지로 돌아가기
               </Button>
             </ALink>
           </Link>
@@ -66,13 +66,13 @@ const Verify: NextPage<Props> = ({ token }) => {
         <Col alignItems="center">
           <MessageWrapper>
             <Icon name="x" size={32} mr={3} stroke={Colors.TrashIcon} />
-            <Message>Invalid verification.</Message>
+            <Message>잘못된 인증입니다.</Message>
           </MessageWrapper>
           <Link href="/login">
             <ALink href="/login" forButton>
               <Button color="purple">
                 <Icon name="arrowLeft" stroke="white" mr={2} />
-                Back to signup
+                로그인 화면으로 돌아가기
               </Button>
             </ALink>
           </Link>
