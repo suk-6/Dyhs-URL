@@ -256,7 +256,7 @@ const Shortener = () => {
                 mb={2}
                 bold
               >
-                Domain:
+                도메인:
               </Text>
               <Select
                 {...select("domain")}
@@ -287,7 +287,7 @@ const Shortener = () => {
               </Text>
               <TextInput
                 {...text("customurl")}
-                placeholder="Custom address..."
+                placeholder="URL을 커스텀하세요."
                 autocomplete="off"
                 data-lpignore
                 pl={[3, 24]}
@@ -306,11 +306,11 @@ const Shortener = () => {
                 mb={2}
                 bold
               >
-                Password:
+                비밀번호:
               </Text>
               <TextInput
                 {...password("password")}
-                placeholder="Password..."
+                placeholder="비공개 URL을 설정하세요."
                 autocomplete="off"
                 data-lpignore
                 pl={[3, 24]}
@@ -331,7 +331,7 @@ const Shortener = () => {
                 mb={2}
                 bold
               >
-                Expire in:
+                만료일:
               </Text>
               <TextInput
                 {...text("expire_in")}
@@ -354,11 +354,11 @@ const Shortener = () => {
                 mb={2}
                 bold
               >
-                Description:
+                설명:
               </Text>
               <TextInput
                 {...text("description")}
-                placeholder="Description"
+                placeholder="설명을 작성하세요."
                 data-lpignore
                 pl={[3, 24]}
                 pr={[3, 24]}

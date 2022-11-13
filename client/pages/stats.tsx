@@ -52,7 +52,7 @@ const StatsPage: NextPage<Props> = ({ id }) => {
     errorMessage = (
       <Flex mt={3}>
         <Icon name="x" size={32} mr={3} stroke={Colors.TrashIcon} />
-        <H2>You need to login to view stats.</H2>
+        <H2>통계를 확인하려면 로그인해야 합니다.</H2>
       </Flex>
     );
   }
@@ -61,7 +61,7 @@ const StatsPage: NextPage<Props> = ({ id }) => {
     errorMessage = (
       <Flex mt={3}>
         <Icon name="x" size={32} mr={3} stroke={Colors.TrashIcon} />
-        <H2>Couldn't get stats.</H2>
+        <H2>통계를 가져올 수 없습니다.</H2>
       </Flex>
     );
   }
@@ -191,7 +191,7 @@ const StatsPage: NextPage<Props> = ({ id }) => {
                 <ALink href="/" title="Back to homepage" forButton>
                   <Button>
                     <Icon name="arrowLeft" stroke="white" mr={2} />
-                    Back to homepage
+                    메인으로 돌아가기
                   </Button>
                 </ALink>
               </Link>

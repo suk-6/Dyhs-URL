@@ -30,9 +30,9 @@ const Homepage = () => {
       {isAuthenticated && <LinksTable />}
       {/* <Features />
       <Extensions /> */}
-      <div style={{ position: "absolute", bottom: "0" }}>
-        <Footer />
-      </div>
+      {/* <div style={{ position: "absolute", bottom: "0" }}> */}
+      <Footer />
+      {/* </div> */}
     </AppWrapper>
   );
 };

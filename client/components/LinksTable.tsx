@@ -342,7 +342,7 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
                   fontSize={[14, 15]}
                   bold
                 >
-                  Target:
+                  원본 URL:
                 </Text>
                 <Flex as="form">
                   <TextInput
@@ -371,7 +371,7 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
                 <Flex as="form">
                   <TextInput
                     {...text("address")}
-                    placeholder="Custom address..."
+                    placeholder="URL을 커스텀하세요."
                     placeholderSize={[13, 14]}
                     fontSize={[14, 15]}
                     height={[40, 44]}
@@ -390,14 +390,16 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
                   fontSize={[14, 15]}
                   bold
                 >
-                  Password
+                  비밀번호:
                 </Text>
                 <Flex as="form">
                   <TextInput
                     {...password({
                       name: "password"
                     })}
-                    placeholder={link.password ? "••••••••" : "Password..."}
+                    placeholder={
+                      link.password ? "••••••••" : "비공개 URL을 설정하세요."
+                    }
                     autocomplete="off"
                     data-lpignore
                     pl={[3, 24]}
@@ -419,12 +421,12 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
                   fontSize={[14, 15]}
                   bold
                 >
-                  Description:
+                  설명:
                 </Text>
                 <Flex as="form">
                   <TextInput
                     {...text("description")}
-                    placeholder="description..."
+                    placeholder="설명을 작성하세요."
                     placeholderSize={[13, 14]}
                     fontSize={[14, 15]}
                     height={[40, 44]}
@@ -443,7 +445,7 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
                   fontSize={[14, 15]}
                   bold
                 >
-                  Expire in:
+                  만료일:
                 </Text>
                 <Flex as="form">
                   <TextInput
@@ -472,7 +474,7 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
                 stroke="white"
                 mr={2}
               />
-              {editLoading ? "Updating..." : "Update"}
+              {editLoading ? "업데이트 중..." : "업데이트"}
             </Button>
             {editMessage.text && (
               <Text mt={3} fontSize={15} color={editMessage.color}>
@@ -549,7 +551,7 @@ const LinksTable: FC = () => {
   const isAdmin = useStoreState(s => s.auth.isAdmin);
   const links = useStoreState(s => s.links);
   const { get, remove } = useStoreActions(s => s.links);
-  const [tableMessage, setTableMessage] = useState("No links to show.");
+  const [tableMessage, setTableMessage] = useState("항목이 존재하지 않습니다.");
   const [deleteModal, setDeleteModal] = useState(-1);
   const [deleteLoading, setDeleteLoading] = useState(false);
   const [deleteMessage, setDeleteMessage] = useMessage();
@@ -641,7 +643,7 @@ const LinksTable: FC = () => {
   return (
     <Col width={1200} maxWidth="95%" margin="40px 0 120px" my={6}>
       <H2 mb={3} light>
-        Recent shortened links.
+        <b>URL List</b>
       </H2>
       <Table scrollWidth="1000px">
         <thead>
@@ -650,7 +652,7 @@ const LinksTable: FC = () => {
               <Flex as="form" onSubmit={onSubmit}>
                 <TextInput
                   {...text("search")}
-                  placeholder="Search..."
+                  placeholder="검색어를 입력하세요."
                   height={[30, 32]}
                   placeholderSize={[13, 13, 13, 13]}
                   fontSize={[14]}
@@ -677,10 +679,10 @@ const LinksTable: FC = () => {
             {Nav}
           </Tr>
           <Tr>
-            <Th {...ogLinkFlex}>Original URL</Th>
-            <Th {...createdFlex}>Created</Th>
-            <Th {...shortLinkFlex}>Short URL</Th>
-            <Th {...viewsFlex}>Views</Th>
+            <Th {...ogLinkFlex}>원본 URL</Th>
+            <Th {...createdFlex}>생성일</Th>
+            <Th {...shortLinkFlex}>단축 URL</Th>
+            <Th {...viewsFlex}>클릭 수</Th>
             <Th {...actionsFlex}></Th>
           </Tr>
         </thead>
@@ -718,11 +720,11 @@ const LinksTable: FC = () => {
         {linkToDelete && (
           <>
             <H2 mb={24} textAlign="center" bold>
-              Delete link?
+              URL 삭제
             </H2>
             <Text textAlign="center">
-              Are you sure do you want to delete the link{" "}
-              <Span bold>"{removeProtocol(linkToDelete.link)}"</Span>?
+              <Span bold>"{removeProtocol(linkToDelete.link)}"</Span> 이 링크를
+              삭제하시겠습니까?
             </Text>
             <Flex justifyContent="center" mt={44}>
               {deleteLoading ? (
@@ -740,11 +742,11 @@ const LinksTable: FC = () => {
                     mr={3}
                     onClick={() => setDeleteModal(-1)}
                   >
-                    Cancel
+                    취소
                   </Button>
                   <Button color="red" ml={3} onClick={onDelete}>
                     <Icon name="trash" stroke="white" mr={2} />
-                    Delete
+                    삭제
                   </Button>
                 </>
               )}
