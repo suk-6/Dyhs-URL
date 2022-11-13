@@ -45,9 +45,9 @@ const SettingsPassword: FC = () => {
   return (
     <Col alignItems="flex-start" maxWidth="100%">
       <H2 mb={4} bold>
-        Change password
+        비밀번호 변경
       </H2>
-      <Text mb={4}>Enter a new password to change your current password.</Text>
+      <Text mb={4}>새로운 비밀번호를 입력하세요.</Text>
       <Text
         {...label("password")}
         as="label"
@@ -55,7 +55,7 @@ const SettingsPassword: FC = () => {
         fontSize={[15, 16]}
         bold
       >
-        New password:
+        새 비밀번호:
       </Text>
       <Flex as="form" onSubmit={onSubmit}>
         <TextInput
@@ -64,19 +64,19 @@ const SettingsPassword: FC = () => {
             validate: value => {
               const val = value.trim();
               if (!val || val.length < 8) {
-                return "Password must be at least 8 chars.";
+                return "비밀번호는 최소 8글자여야 합니다.";
               }
             }
           })}
           autocomplete="off"
-          placeholder="New password..."
+          placeholder="새 비밀번호를 입력하세요."
           width={[1, 2 / 3]}
           mr={3}
           required
         />
         <Button type="submit" disabled={loading}>
           <Icon name={loading ? "spinner" : "refresh"} mr={2} stroke="white" />
-          {loading ? "Updating..." : "Update"}
+          {loading ? "업데이트 중..." : "업데이트"}
         </Button>
       </Flex>
       <Text color={message.color} mt={3} fontSize={15}>

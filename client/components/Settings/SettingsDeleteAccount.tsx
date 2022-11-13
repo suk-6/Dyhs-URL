@@ -53,10 +53,10 @@ const SettingsDeleteAccount: FC = () => {
   return (
     <Col alignItems="flex-start" maxWidth="100%">
       <H2 mb={4} bold>
-        Delete account
+        계정 삭제
       </H2>
       <Text mb={4}>
-        Delete your account from {publicRuntimeConfig.SITE_NAME}.
+        {publicRuntimeConfig.SITE_NAME}을 탈퇴하고 계정을 삭제합니다.
       </Text>
       <Text
         {...label("password")}
@@ -65,18 +65,18 @@ const SettingsDeleteAccount: FC = () => {
         fontSize={[15, 16]}
         bold
       >
-        Password:
+        비밀번호:
       </Text>
       <RowCenterV as="form" onSubmit={onSubmit}>
         <TextInput
           {...password("accpass")}
-          placeholder="Password..."
+          placeholder="비밀번호를 입력하세요"
           autocomplete="off"
           mr={3}
         />
         <Button color="red" type="submit" disabled={loading}>
           <Icon name={loading ? "spinner" : "trash"} mr={2} stroke="white" />
-          Delete
+          삭제
         </Button>
       </RowCenterV>
       <Modal
@@ -86,11 +86,11 @@ const SettingsDeleteAccount: FC = () => {
       >
         <>
           <H2 mb={24} textAlign="center" bold>
-            Delete account?
+            계정 삭제
           </H2>
           <Text textAlign="center">
-            All of your data including your <Span bold>LINKS</Span> and{" "}
-            <Span bold>STATS</Span> will be deleted.
+            모든 <b>URL</b>과 <b>통계</b>가 삭제됩니다. 삭제 후 복구는{" "}
+            <Span bold>불가능</Span>합니다.
           </Text>
           <RowCenterH mt={44}>
             {loading ? (
@@ -104,11 +104,11 @@ const SettingsDeleteAccount: FC = () => {
             ) : (
               <>
                 <Button color="gray" mr={3} onClick={() => setModal(false)}>
-                  Cancel
+                  취소
                 </Button>
                 <Button color="red" ml={3} onClick={onDelete}>
                   <Icon name="trash" stroke="white" mr={2} />
-                  Delete
+                  삭제
                 </Button>
               </>
             )}

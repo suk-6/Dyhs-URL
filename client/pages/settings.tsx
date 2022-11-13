@@ -26,8 +26,8 @@ const SettingsPage: NextPage = () => {
           </Span>
           .
         </H1>
-        <Divider mt={4} mb={48} />
-        <SettingsDomain />
+        {/* <Divider mt={4} mb={48} />
+        <SettingsDomain /> */}
         <Divider mt={4} mb={48} />
         <SettingsApi />
         <Divider mt={4} mb={48} />

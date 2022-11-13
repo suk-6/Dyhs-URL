@@ -45,7 +45,7 @@ const SettingsChangeEmail: FC = () => {
   return (
     <Col alignItems="flex-start" maxWidth="100%">
       <H2 mb={4} bold>
-        Change email address
+        이메일 변경하기
       </H2>
       <Col alignItems="flex-start" onSubmit={onSubmit} width={1} as="form">
         <Flex width={1} flexDirection={["column", "row"]}>
@@ -57,11 +57,11 @@ const SettingsChangeEmail: FC = () => {
               fontSize={[15, 16]}
               bold
             >
-              Password:
+              비밀번호:
             </Text>
             <TextInput
               {...password("changeemailpass")}
-              placeholder="Password..."
+              placeholder="비밀번호를 입력하세요."
               maxWidth="240px"
               required
             />
@@ -74,11 +74,11 @@ const SettingsChangeEmail: FC = () => {
               fontSize={[15, 16]}
               bold
             >
-              New email address:
+              새 이메일 주소:
             </Text>
             <TextInput
               {...email("changeemailaddress")}
-              placeholder="john@examaple.com"
+              placeholder="dyhs@dyhs.kr"
               flex="1 1 auto"
               maxWidth="240px"
             />
@@ -86,7 +86,7 @@ const SettingsChangeEmail: FC = () => {
         </Flex>
         <Button type="submit" color="blue" mt={[24, 3]} disabled={loading}>
           <Icon name={loading ? "spinner" : "refresh"} mr={2} stroke="white" />
-          {loading ? "Sending..." : "Update"}
+          {loading ? "업데이트 중..." : "업데이트"}
         </Button>
       </Col>
       <Text fontSize={15} color={message.color} mt={3}>
