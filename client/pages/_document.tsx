@@ -23,7 +23,7 @@ class AppDocument extends Document<Props> {
 
   render() {
     return (
-      <html lang="en">
+      <html lang="ko">
         <Head>
           <meta charSet="utf-8" />
           <meta
@@ -57,19 +57,13 @@ class AppDocument extends Document<Props> {
             property="og:image"
             content={`https://${publicRuntimeConfig.DEFAULT_DOMAIN}/images/card.png`}
           />
-          <meta
-            property="og:description"
-            content="Free & Open Source Modern URL Shortener"
-          />
+          <meta property="og:description" content="Dyhs URL Shortener" />
           <meta
             name="twitter:url"
             content={`https://${publicRuntimeConfig.DEFAULT_DOMAIN}`}
           />
           <meta name="twitter:title" content={publicRuntimeConfig.SITE_NAME} />
-          <meta
-            name="twitter:description"
-            content="Free & Open Source Modern URL Shortener"
-          />
+          <meta name="twitter:description" content="Dyhs URL Shortener" />
           <meta
             name="twitter:image"
             content={`https://${publicRuntimeConfig.DEFAULT_DOMAIN}/images/card.png`}
