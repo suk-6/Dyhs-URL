@@ -106,7 +106,7 @@ const LoginPage = () => {
         ) : (
           <LoginForm id="login-form" onSubmit={onSubmit("login")}>
             <Text {...label("email")} as="label" mb={2} bold>
-              이메일 주소:
+              이메일 주소
             </Text>
             <TextInput
               {...email("email")}
@@ -120,7 +120,7 @@ const LoginPage = () => {
               autoFocus
             />
             <Text {...label("password")} as="label" mb={2} bold>
-              비밀번호{!DISALLOW_REGISTRATION ? " (최소글자: 8)" : ""}:
+              비밀번호{!DISALLOW_REGISTRATION ? " (최소글자: 8)" : ""}
             </Text>
             <TextInput
               {...password("password")}
