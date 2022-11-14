@@ -30,14 +30,14 @@ const authenticate = (
 
       if (user && isStrict && !user.verified) {
         throw new CustomError(
-          "Your email address is not verified. " +
-            "Click on signup to get the verification link again.",
+          "이 이메일은 인증되지 않았습니다. " +
+            "회원가입하여 이메일을 인증하세요.",
           400
         );
       }
 
       if (user && user.banned) {
-        throw new CustomError("You're banned from using this website.", 403);
+        throw new CustomError("이 웹 사이트를 사용할 수 없습니다.", 403);
       }
 
       if (user) {
@@ -51,12 +51,15 @@ const authenticate = (
     })(req, res, next);
   };
 
-export const local = authenticate("local", "Login credentials are wrong.");
-export const jwt = authenticate("jwt", "Unauthorized.");
-export const jwtLoose = authenticate("jwt", "Unauthorized.", false);
+export const local = authenticate(
+  "local",
+  "로그인 자격 증명이 잘못되었습니다."
+);
+export const jwt = authenticate("jwt", "허가되지 않음.");
+export const jwtLoose = authenticate("jwt", "허가되지 않음.", false);
 export const apikey = authenticate(
   "localapikey",
-  "API key is not correct.",
+  "API key가 일치하지 않습니다.",
   false
 );
 
@@ -74,7 +77,7 @@ export const cooldown: Handler = async (req, res, next) => {
     const timeToWait =
       cooldownConfig - differenceInMinutes(new Date(), new Date(ip.created_at));
     throw new CustomError(
-      `Non-logged in users are limited. Wait ${timeToWait} minutes or log in.`,
+      `제한되었습니다. ${timeToWait}분 기다리시거나, 로그인하세요.`,
       400
     );
   }
@@ -100,7 +103,10 @@ export const recaptcha: Handler = async (req, res, next) => {
   });
 
   if (!isReCaptchaValid.data.success) {
-    throw new CustomError("reCAPTCHA is not valid. Try again.", 401);
+    throw new CustomError(
+      "reCAPTCHA가 유효하지 않습니다. 다시 시도하세요.",
+      401
+    );
   }
 
   return next();
@@ -108,7 +114,7 @@ export const recaptcha: Handler = async (req, res, next) => {
 
 export const admin: Handler = async (req, res, next) => {
   if (req.user.admin) return next();
-  throw new CustomError("Unauthorized", 401);
+  throw new CustomError("허가되지 않음.", 401);
 };
 
 export const signup: Handler = async (req, res) => {
@@ -122,7 +128,7 @@ export const signup: Handler = async (req, res) => {
 
   await mail.verification(user);
 
-  return res.status(201).send({ message: "Verification email has been sent." });
+  return res.status(201).send({ message: "인증 이메일이 전송되었습니다." });
 };
 
 export const token: Handler = async (req, res) => {
@@ -160,12 +166,14 @@ export const changePassword: Handler = async (req, res) => {
   const [user] = await query.user.update({ id: req.user.id }, { password });
 
   if (!user) {
-    throw new CustomError("Couldn't change the password. Try again later.");
+    throw new CustomError(
+      "비밀번호를 변경할 수 없습니다. 나중에 다시 시도하세요."
+    );
   }
 
   return res
     .status(200)
-    .send({ message: "Your password has been changed successfully." });
+    .send({ message: "비밀번호가 성공적으로 변경되었습니다." });
 };
 
 export const generateApiKey: Handler = async (req, res) => {
@@ -176,7 +184,9 @@ export const generateApiKey: Handler = async (req, res) => {
   const [user] = await query.user.update({ id: req.user.id }, { apikey });
 
   if (!user) {
-    throw new CustomError("Couldn't generate API key. Please try again later.");
+    throw new CustomError(
+      "API 키를 생성할 수 없습니다. 나중에 다시 시도하세요."
+    );
   }
 
   return res.status(201).send({ apikey });
@@ -196,7 +206,7 @@ export const resetPasswordRequest: Handler = async (req, res) => {
   }
 
   return res.status(200).send({
-    message: "If email address exists, a reset password email has been sent."
+    message: "비밀번호 재설정 메일이 전송되었습니다."
   });
 };
 
@@ -222,7 +232,7 @@ export const resetPassword: Handler = async (req, res, next) => {
 
 export const signupAccess: Handler = (req, res, next) => {
   if (!env.DISALLOW_REGISTRATION) return next();
-  return res.status(403).send({ message: "Registration is not allowed." });
+  return res.status(403).send({ message: "회원가입이 허용되지 않습니다." });
 };
 
 export const changeEmailRequest: Handler = async (req, res) => {
@@ -231,13 +241,13 @@ export const changeEmailRequest: Handler = async (req, res) => {
   const isMatch = await bcrypt.compare(password, req.user.password);
 
   if (!isMatch) {
-    throw new CustomError("Password is wrong.", 400);
+    throw new CustomError("비밀번호가 틀립니다.", 400);
   }
 
   const currentUser = await query.user.find({ email });
 
   if (currentUser) {
-    throw new CustomError("Can't use this email address.", 400);
+    throw new CustomError("이 이메일 주소를 사용할 수 없습니다.", 400);
   }
 
   const [updatedUser] = await query.user.update(
@@ -256,9 +266,7 @@ export const changeEmailRequest: Handler = async (req, res) => {
   }
 
   return res.status(200).send({
-    message:
-      "If email address exists, an email " +
-      "with a verification link has been sent."
+    message: "확인 이메일이 전송되었습니다."
   });
 };
 

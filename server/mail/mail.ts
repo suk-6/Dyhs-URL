@@ -46,7 +46,7 @@ export const verification = async (user: User) => {
   const mail = await transporter.sendMail({
     from: env.MAIL_FROM || env.MAIL_USER,
     to: user.email,
-    subject: "Verify your account",
+    subject: "[{{site_name}}] 회원가입".replace(/{{site_name}}/, env.SITE_NAME),
     text: verifyMailText
       .replace(/{{verification}}/gim, user.verification_token)
       .replace(/{{domain}}/gm, env.DEFAULT_DOMAIN)
@@ -66,7 +66,10 @@ export const changeEmail = async (user: User) => {
   const mail = await transporter.sendMail({
     from: env.MAIL_FROM || env.MAIL_USER,
     to: user.change_email_address,
-    subject: "Verify your new email address",
+    subject: "[{{site_name}}] 이메일 변경".replace(
+      /{{site_name}}/,
+      env.SITE_NAME
+    ),
     text: changeEmailText
       .replace(/{{verification}}/gim, user.change_email_token)
       .replace(/{{domain}}/gm, env.DEFAULT_DOMAIN)
@@ -86,7 +89,10 @@ export const resetPasswordToken = async (user: User) => {
   const mail = await transporter.sendMail({
     from: env.MAIL_FROM || env.MAIL_USER,
     to: user.email,
-    subject: "Reset your password",
+    subject: "[{{site_name}}] 비밀번호 재설정".replace(
+      /{{site_name}}/,
+      env.SITE_NAME
+    ),
     text: resetMailText
       .replace(/{{resetpassword}}/gm, user.reset_password_token)
       .replace(/{{domain}}/gm, env.DEFAULT_DOMAIN),
