@@ -38,7 +38,7 @@ const ReportPage = () => {
 
   return (
     <AppWrapper>
-      <Col width={600} maxWidth="97%" alignItems="flex-start">
+      <Col width={600} maxWidth="60%" alignItems="flex-start">
         <H2 my={3} bold>
           신고하기
         </H2>
