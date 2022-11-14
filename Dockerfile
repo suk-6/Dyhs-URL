@@ -2,7 +2,7 @@ FROM node:12-alpine
 
 RUN apk add --update bash
 
-ENV TZ Asia/Seoul
+#ENV TZ Asia/Seoul
 
 # Setting working directory. 
 WORKDIR /usr/src/app
