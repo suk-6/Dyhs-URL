@@ -2,6 +2,8 @@ FROM node:12-alpine
 
 RUN apk add --update bash
 
+RUN ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+
 # Setting working directory. 
 WORKDIR /usr/src/app
 
