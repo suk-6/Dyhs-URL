@@ -54,7 +54,7 @@ const ResetPassword: NextPage<Props> = ({ token }) => {
       await axios.post(APIv2.AuthResetPassword, {
         email: formState.values.email
       });
-      setMessage("Reset password email has been sent.", "green");
+      setMessage("비밀번호 재설정 메일이 전송되었습니다.", "green");
     } catch (error) {
       setMessage(error?.response?.data?.error || "Couldn't reset password.");
     }
