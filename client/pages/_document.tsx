@@ -32,7 +32,7 @@ class AppDocument extends Document<Props> {
           />
           <meta
             name="description"
-            content={`${publicRuntimeConfig.SITE_NAME} is a free and open source URL shortener with custom domains and stats.`}
+            content={`${publicRuntimeConfig.SITE_NAME}은 덕영고등학교에서 운영 중인 단축 URL 서비스입니다.`}
           />
           <link
             href="https://fonts.googleapis.com/css?family=Nunito:300,400,700"

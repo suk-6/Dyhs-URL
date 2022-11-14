@@ -7,7 +7,7 @@ import cookie from "js-cookie";
 import Head from "next/head";
 import React from "react";
 
-import { initGA, logPageView , initSentry } from "../helpers/analytics";
+import { initGA, logPageView, initSentry } from "../helpers/analytics";
 import { initializeStore } from "../store";
 import { TokenPayload } from "../types";
 
@@ -16,7 +16,7 @@ const { publicRuntimeConfig } = getConfig();
 
 if (isProd) {
   initSentry();
-};
+}
 
 // TODO: types
 class MyApp extends App<any> {
@@ -81,9 +81,7 @@ class MyApp extends App<any> {
     return (
       <>
         <Head>
-          <title>
-            {publicRuntimeConfig.SITE_NAME} | Modern Open Source URL shortener.
-          </title>
+          <title>{publicRuntimeConfig.SITE_NAME} | Simple URL Shortener</title>
         </Head>
         <StoreProvider store={this.store}>
           <Component {...pageProps} />
