@@ -504,14 +504,13 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
             Ban link?
           </H2>
           <Text mb={24} textAlign="center">
-            Are you sure do you want to ban the link{" "}
-            <Span bold>"{removeProtocol(link.link)}"</Span>?
+            <Span bold>"{removeProtocol(link.link)}"</Span>
           </Text>
           <RowCenter>
             <Checkbox {...checkbox("user")} label="User" mb={12} />
-            <Checkbox {...checkbox("userLinks")} label="User links" mb={12} />
-            <Checkbox {...checkbox("host")} label="Host" mb={12} />
-            <Checkbox {...checkbox("domain")} label="Domain" mb={12} />
+            <Checkbox {...checkbox("userLinks")} label="URL" mb={12} />
+            <Checkbox {...checkbox("host")} label="IP Ban" mb={12} />
+            <Checkbox {...checkbox("domain")} label="Root Domain" mb={12} />
           </RowCenter>
           <Flex justifyContent="center" mt={4}>
             {banLoading ? (
@@ -691,7 +690,7 @@ const LinksTable: FC = () => {
             <Tr width={1} justifyContent="center">
               <Td flex="1 1 auto" justifyContent="center">
                 <Text fontSize={18} light>
-                  {links.loading ? "Loading links..." : tableMessage}
+                  {links.loading ? "링크 로딩 중.." : tableMessage}
                 </Text>
               </Td>
             </Tr>
