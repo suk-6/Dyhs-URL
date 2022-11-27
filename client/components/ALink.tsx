@@ -16,7 +16,7 @@ const ALink = styled(Box).attrs({
   color: #2196f3;
   border-bottom: 1px dotted transparent;
   text-decoration: none;
-  transition: all 0.1s ease-out;
+  transition: all 0.2s ease-out;
 
   ${ifProp(
     { forButton: false },
