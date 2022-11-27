@@ -640,7 +640,7 @@ const LinksTable: FC = () => {
   );
 
   return (
-    <Col width={1200} maxWidth="95%" margin="40px 0 120px" my={6}>
+    <Col width={1250} maxWidth="95%" margin="40px 0 120px" my={6}>
       <H2 mb={3} light>
         <b>URL List</b>
       </H2>
@@ -666,7 +666,7 @@ const LinksTable: FC = () => {
                   <Checkbox
                     {...label("all")}
                     {...checkbox("all")}
-                    label="All links"
+                    label="모든 링크 보기"
                     ml={3}
                     fontSize={[14, 15]}
                     width={[15, 16]}
